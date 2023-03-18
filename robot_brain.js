@@ -39,7 +39,7 @@ class Robots {
         return { dist: village[state.location][destination][0], route: [destination] };
     }
     static fixedRouteRobot() {
-        return { dist: 0, route: mailRoute.map(mail => mail) };
+        return { dist: 402, route: mailRoute.map(node => node) };
     }
     static shortestRouteRobot(state) {
         const queue = [{ at: state.location, route: [], dist: 0 }];
