@@ -1,4 +1,4 @@
-// THIS IS ROBOT BRAIN PROGRAM DEPARTMENT RBP WHERE I AM WORKING AND ALSO THE MANAGER
+// THIS IS ROBOT BRAIN PROGRAM DEPARTMENT RBP WHERE I AM WORKING AND ALSO THE MANAGER 😂😂
 import Knowhere, { roads, mailRoute } from "./know_where_village.js";
 const village = new Knowhere().addVillageEdges(roads);
 class RobotBrain {
@@ -23,7 +23,7 @@ class RobotBrain {
             const { at, route, dist } = smallestDistNode;
             for (const node in graph[at]) {
                 const edgeDist = dist + graph[at][node][0]; // DISTANCE FROM CURRENT NODE TO NEXT NODE
-                if (edgeDist < graph[at][node][1] && node != route[route.length - 1]) { //  IF THE (DISTANCE FROM CURRENT NODE TO NEXT NODE) IS LESS THAN INITIAL VALUE (INFINITY) UPDATE THE NEXT NODE WITH EDGE_DIST
+                if (edgeDist < graph[at][node][1] && node != route[route.length - 1]) { //  IF THE (DISTANCE FROM CURRENT NODE TO NEXT NODE) IS LESS THAN INITIAL VALUE (INFINITY BY DEFAULT) UPDATE THE NEXT NODE WITH EDGE_DIST
                     graph[at][node][1] = edgeDist;
                     save.push({ at: node, route: route.concat(node), dist: edgeDist, checked: false });
                     if (to?.has(node)) allRoutes.push({ dist: edgeDist, route: route.concat(node) });
@@ -39,9 +39,9 @@ class RobotBrain {
         return { dist: village[state.location][destination][0], route: [destination] };
     }
     static fixedRouteRobot() {
-        return { dist: 402, route: mailRoute.map(node => node) };
+        return { dist: 404, route: mailRoute.map(node => node) };
     }
-    static RouteGeneratorRobot(state) {
+    static RouteGeneratorRobot(state) { // IMPLEMENTING BFS ALGORITHM
         const queue = [{ at: state.location, route: [], dist: 0 }];
         const destinations = RobotBrain.possibleDestinations(state);
         for (const front of queue) {
@@ -55,7 +55,7 @@ class RobotBrain {
         }
     }
 
-    static shortestRouteRobot(state) {
+    static shortestRouteRobot(state) { // THESE FUNCTION INVOKES THE DIKJISTRA AND THE POSSIBLE_DESTINATION FUNCTIONS
         const routes = RobotBrain.dikjistra(state.location, RobotBrain.possibleDestinations(state));
         let shortestDistRoute = null, inf = Infinity, memo = {};
         for (const { dist, route } of routes) {
@@ -72,7 +72,5 @@ class RobotBrain {
         }
         return shortestDistRoute;
     }
-
-
 }
 export default RobotBrain;

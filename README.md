@@ -1,11 +1,12 @@
 # DELIVERY ROBOT 
-In the small Village of __Know Where__. The village is made of __13 houses (nodes) and 18 roads (edges) with distances (weights) which total to 402 kilometeers.__
+In the small Village of __Know Where__. The village is made of __13 houses (nodes) and 18 roads (edges) with distances (weights) which total to 404 kilometeers.__
 
 Each node is a House, or a company, or viewing center or shop. The edges are the roads that leads to those edges and the weights represents the distance of the roads in Kilometers.
 
 The village is small with but the people in there are so lazy, that each person delivering his/her parcels to their neighbours seems pretty much like a big job even taking their mails to the Post office for delivery is no do. The citizens like to be alone doing what they like best, all best known to them. 
 
-The bellow Graph Image shows the whole map of the village.  
+<figcaption>The bellow Graph Image shows the whole map of the village. </figcaption>
+
 ![the graph of know where village](./village_graph.jpg)
 ---
 ## THE ROBOTIC COMPANY AND THE ROBOTS
@@ -26,12 +27,10 @@ Secondly the __Robot__ decides to go deliver all parcels at their respective add
 
  We've programmed four __Robot's Brain__ so far.
 
-<div color="yellow">
-    1. Random Route Robot ( R.R.R )
-    2. Fixed Route Robot ( F.R.R )
-    3. Route Generator Robot ( G.R.R )
-    4. Shortest Route Robot ( S.R.R )
- </div>
+1. __Random Route Robot ( R.R.R )__  
+2. __Fixed Route Robot ( F.R.R )__  
+3. __Route Generator Robot ( G.R.R )__  
+4. __Shortest Route Robot ( S.R.R )__
 
 ### Random Route Robot ( R.R.R )
 This makes it really inefficient
