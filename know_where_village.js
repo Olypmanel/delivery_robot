@@ -8,7 +8,7 @@ export const mailRoute = [
     "Hospital", "Zoo", "Sheriff", "Event Hall", "Segun's House", "John's House",
     "Cafe", "Emmy's House", "Farm", "Market", "Church", "Market", "Post Office",
 ];
-class MiddleWareVillage {
+class KnowWhere {
     addVillageEdges(roads) {
         const graph = Object.create(null);
         const addVillageEdges = (from, to, dist) => {
@@ -23,4 +23,4 @@ class MiddleWareVillage {
         return graph;
     };
 }
-export default MiddleWareVillage;
+export default KnowWhere;

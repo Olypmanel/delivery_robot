@@ -1,7 +1,7 @@
-import MiddleWareVillage, { roads, mailRoute } from "./village.js";
-const village = new MiddleWareVillage().addVillageEdges(roads);
-console.log(mailRoute);
-class Robots {
+// THIS IS ROBOT BRAIN PROGRAM DEPARTMENT RBP WHERE I AM WORKING AND ALSO THE MANAGER
+import Knowhere, { roads, mailRoute } from "./know_where_village.js";
+const village = new Knowhere().addVillageEdges(roads);
+class RobotBrain {
     static possibleDestinations(state) {
         const destinations = new Set;
         const { location, parcels } = state;
@@ -11,7 +11,7 @@ class Robots {
         return destinations;
     }
     static dikjistra(from, to) {
-        const graph = new MiddleWareVillage().addVillageEdges(roads);
+        const graph = new Knowhere().addVillageEdges(roads);
         const save = [{ at: from, route: [], dist: 0, checked: false }];
         const allRoutes = []; // THIS WILL HOLD ALL POSSIBLE SHORT ROUTES TO THE ROBOT'S DESTINATIION. THE ROBOT WILL LATER CHOOSE THE A ROUTE WITH THE SMALLEST DISTANCE
         for (; ;) {
@@ -41,23 +41,22 @@ class Robots {
     static fixedRouteRobot() {
         return { dist: 402, route: mailRoute.map(node => node) };
     }
-    static shortestRouteRobot(state) {
+    static RouteGeneratorRobot(state) {
         const queue = [{ at: state.location, route: [], dist: 0 }];
-        const destinations = Robots.possibleDestinations(state);
+        const destinations = RobotBrain.possibleDestinations(state);
         for (const front of queue) {
-            let { at, route, dist } = front;
+            const { at, route, dist } = front;
             for (const node in village[at]) {
-                if (destinations.has(node)) return { dist: dist + village[at][node][0], route: route.concat(node) };
-                if (queue.every(({ at }) => at != node)) {
-                    dist += village[at][node][0];
-                    queue.push({ at: node, dist, route: route.concat(node) });
-                }
+                const edgeDist = dist + village[at][node][0];
+                if (destinations.has(node)) return { dist: edgeDist, route: route.concat(node) };
+                if (queue.every(({ at }) => at != node))
+                    queue.push({ at: node, dist: edgeDist, route: route.concat(node) });
             }
         }
     }
 
-    static shortestDistanceRobot(state) {
-        const routes = Robots.dikjistra(state.location, Robots.possibleDestinations(state));
+    static shortestRouteRobot(state) {
+        const routes = RobotBrain.dikjistra(state.location, RobotBrain.possibleDestinations(state));
         let shortestDistRoute = null, inf = Infinity, memo = {};
         for (const { dist, route } of routes) {
             if (dist < inf) { shortestDistRoute = { dist, route }; inf = dist; } // GET THE SHORTEST DISTANCE
@@ -76,4 +75,4 @@ class Robots {
 
 
 }
-export default Robots;
+export default RobotBrain;

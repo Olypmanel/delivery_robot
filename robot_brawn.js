@@ -1,5 +1,5 @@
-import MiddleWareVillage, { roads } from "./village.js";
-const village = new MiddleWareVillage().addVillageEdges(roads);
+import KnowWhere, { roads } from "./know_where_village.js";
+const village = new KnowWhere().addVillageEdges(roads);
 class RobotBrawn {
     constructor(location, parcels) {
         this.location = location;

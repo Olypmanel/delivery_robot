@@ -1,4 +1,4 @@
-import RobotBrawn from "./robot_brawn_or_body.js";
+import RobotBrawn from "./robot_brawn.js";
 import RobotBrain from "./robot_brain.js";
 
 const runRobot = (robot, RobotBrain, memory = { route: [], dist: 0 }) => {
@@ -14,11 +14,11 @@ const runRobot = (robot, RobotBrain, memory = { route: [], dist: 0 }) => {
         robot = robot.move(destination);
     }
 };
-const parcel = RobotBrawn.generateParcels(20);
+const parcel = RobotBrawn.generateParcels(Math.random() * 200 >> 0);
 const done = [
-    ["random robot", runRobot(parcel, RobotBrain.randomRouteRobot)], // implements Math.random function
+    ["random route robot", runRobot(parcel, RobotBrain.randomRouteRobot)], // implements Math.random function
     ["fixed route robot", runRobot(parcel, RobotBrain.fixedRouteRobot)], // implement fixed mail route
-    ['shortest route robot', runRobot(parcel, RobotBrain.shortestRouteRobot)],// implement BFS algorithm
-    ["shortest dist robot", runRobot(parcel, RobotBrain.shortestDistanceRobot)], // implement dijkstra algorithm
+    ['route generator robot', runRobot(parcel, RobotBrain.RouteGeneratorRobot)],// implement BFS algorithm
+    ["shortest route robot", runRobot(parcel, RobotBrain.shortestRouteRobot)], // implement dijkstra algorithm
 ];
 for (let turnsAndDist of done) console.log(turnsAndDist);
