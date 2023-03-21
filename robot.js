@@ -1,17 +1,17 @@
 import RobotBrawn from "./robot_brawn.js";
 import RobotBrain from "./robot_brain.js";
 
-const runRobot = (robot, RobotBrain, memory = { route: [], dist: 0 }) => { // THE ROBOT IN ACTION
-    let distance = 0, len = robot.parcels.length;
+const runRobot = (RobotBrawn, RobotBrain, memory = { route: [], dist: 0 }) => { // THE ROBOT IN ACTION
+    let distance = 0, len = RobotBrawn.parcels.length;
     for (let turn = 0; ; turn++) {
-        if (robot.parcels == 0) {
+        if (RobotBrawn.parcels == 0) {
             console.log(`\n Done! Moved ${len} parcels in ${turn} turns and in ${distance} Km\n`);
             return (`Done! Moved ${len} parcels in ${turn} turns and in ${distance} Km`);
         }
-        if (!memory.route.length) { memory = RobotBrain(robot); distance += memory.dist; }
+        if (!memory.route.length) { memory = RobotBrain(RobotBrawn); distance += memory.dist; }
         const destination = memory.route.shift();
-        console.log(`   Moved from ${robot.location} to ${destination}`);
-        robot = robot.move(destination);
+        console.log(`   Moved from ${RobotBrawn.location} to ${destination}`);
+        RobotBrawn = RobotBrawn.move(destination);
     }
 };
 const parcel = RobotBrawn.robotApp(Math.random() * 200 >> 0);

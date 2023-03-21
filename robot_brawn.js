@@ -12,17 +12,16 @@ class RobotBrawn {
         const parcels = this.parcels.map(({ location, address }) =>
             location == this.location ? { location: destination, address } : { location, address }
         ).filter(({ address, location }) => address != location);
-        return new RobotBrawn(destination, parcels);
+        return new RobotBrawn(destination, parcels); // RETURN NEW STATE BECAUSE 
     }
-    static robotApp(parcelCount = 100) { 
+    static robotApp(parcelCount = 100) {
         // THIS WHERE THE VILLAGERS REGISTER THEIR PARCELS. THEY STATE THE LOCATION AND THE ADDRESS OF THE PARCEL
-        const allVillageNodes = Object.keys(village);
-        const parcels = [];
+        const allVillageNodes = Object.keys(village), parcels = [];
         for (let i = 0; i < parcelCount; i++) {
             const location = allVillageNodes[Math.random() * allVillageNodes.length >> 0];
             let address = allVillageNodes[Math.random() * allVillageNodes.length >> 0];
-            // ADDRESS AND LOCATION CAN'T BE THE SAME. I.E SEGUN CANNOT SEND PARCEL TO HIMSELF
-            while (location == address) address = allVillageNodes[Math.random() * allVillageNodes.length >> 0]; 
+            // ADDRESS AND LOCATION CAN'T BE THE SAME. for example SEGUN CANNOT SEND PARCEL TO HIMSELF
+            while (location == address) address = allVillageNodes[Math.random() * allVillageNodes.length >> 0];
             parcels.push({ location, address });
         }
         return new RobotBrawn("Post Office", parcels);

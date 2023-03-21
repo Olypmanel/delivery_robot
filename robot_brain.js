@@ -1,6 +1,6 @@
 // THIS IS ROBOT BRAIN PROGRAM DEPARTMENT RBP WHERE I AM WORKING AND ALSO THE MANAGER 😂😂
-import Knowhere, { roads, mailRoute } from "./know_where_village.js";
-const village = new Knowhere().addVillageEdges(roads);
+import KnowWhere, { roads, mailRoute } from "./know_where_village.js";
+const village = new KnowWhere().addVillageEdges(roads);
 class RobotBrain {
     static possibleDestinations(state) {
         const destinations = new Set;
@@ -11,7 +11,7 @@ class RobotBrain {
         return destinations;
     }
     static dikjistra(from, to) {
-        const graph = new Knowhere().addVillageEdges(roads);
+        const graph = new KnowWhere().addVillageEdges(roads);
         const save = [{ at: from, route: [], dist: 0, checked: false }];
         const allRoutes = []; // THIS WILL HOLD ALL POSSIBLE SHORT ROUTES TO THE ROBOT'S DESTINATIION. THE ROBOT WILL LATER CHOOSE THE A ROUTE WITH THE SMALLEST DISTANCE
         for (; ;) {
@@ -26,7 +26,7 @@ class RobotBrain {
                 if (edgeDist < graph[at][node][1] && node != route[route.length - 1]) { //  IF THE (DISTANCE FROM CURRENT NODE TO NEXT NODE) IS LESS THAN INITIAL VALUE (INFINITY BY DEFAULT) UPDATE THE NEXT NODE WITH EDGE_DIST
                     graph[at][node][1] = edgeDist;
                     save.push({ at: node, route: route.concat(node), dist: edgeDist, checked: false });
-                    if (to?.has(node)) allRoutes.push({ dist: edgeDist, route: route.concat(node) });
+                    if (to.has(node)) allRoutes.push({ dist: edgeDist, route: route.concat(node) });
                 }
                 smallestDistNode.checked = true;
             }
@@ -38,9 +38,8 @@ class RobotBrain {
         const destination = nextRoutes[nextRoutes.length * Math.random() >> 0];
         return { dist: village[state.location][destination][0], route: [destination] };
     }
-    static fixedRouteRobot() {
-        return { dist: 404, route: mailRoute.map(node => node) };
-    }
+    static fixedRouteRobot() { return { dist: 404, route: mailRoute.map(node => node) }; }
+
     static RouteGeneratorRobot(state) { // IMPLEMENTING BFS ALGORITHM
         const queue = [{ at: state.location, route: [], dist: 0 }];
         const destinations = RobotBrain.possibleDestinations(state);
