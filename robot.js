@@ -4,7 +4,7 @@ import RobotBrain from "./robot_brain.js";
 const runRobot = (RobotBrawn, RobotBrain, memory = { route: [], dist: 0 }) => { // THE ROBOT IN ACTION
     let distance = 0, len = RobotBrawn.parcels.length;
     for (let turn = 0; ; turn++) {
-        if (RobotBrawn.parcels == 0) {
+        if (!RobotBrawn.parcels.length) {
             console.log(`\n Done! Moved ${len} parcels in ${turn} turns and in ${distance} Km\n`);
             return (`Done! Moved ${len} parcels in ${turn} turns and in ${distance} Km`);
         }
