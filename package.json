@@ -1,5 +1,5 @@
 {
-  "name": "route_robot",
+  "name": "delivery_robot",
   "version": "1.0.0",
   "description": "",
   "main": "robot.js",
@@ -13,6 +13,6 @@
   },
   
   "keywords": [],
-  "author": "",
+  "author": "Emmanuel Segun",
   "license": "ISC"
 }
