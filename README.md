@@ -9,6 +9,11 @@ The village is small with but the people in there are so lazy, that each person 
 
 ![the graph of know where village](./village_graph.jpg)
 ---
+## HOW TO GET STARTED WITH THE DELIVERY ROBOT
+- Run __git clone https://github.com/olypmanel/delivery_robot.git__
+- Then run __npm install__
+- Finally run __npm run start__
+
 ## THE ROBOTIC COMPANY AND THE ROBOTS
  Even most Post Office officers ( Postmen ) seems lazy except me though 😂🤣 the manager of the __Robot Brain Program ( RBP )__ a subsidiary of __Robotic Company ( RC )__ the other is __Robot Brawn Building ( RBB )__ (they build the Robot Body). Which are all located beside the __Post Office__.
  
