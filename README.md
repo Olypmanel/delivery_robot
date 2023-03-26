@@ -11,6 +11,7 @@ The village is small with but the people in there are so lazy, that each person 
 ---
 ## HOW TO GET STARTED WITH THE DELIVERY ROBOT
 - Run __git clone https://github.com/olypmanel/delivery_robot.git__
+- Run __cd delivery_robot__
 - Then run __npm install__
 - Finally run __npm run start__
 
