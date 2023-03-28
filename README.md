@@ -76,7 +76,7 @@ After so much deep learning (I'm kidding right 😂🤣) we built a __Robot Brai
 This __Brain__ would later be one of the two most efficient __Robot Brain__. It learns by using the data of the Village map (graph).
 This __Robot Brain__ was pretty advanced in that:
 1. It learns from the data of the Village given to it and add to the data on each visit to a building (or node ). 
-2. It has memory of its last visit and know where its going and can generate the shortest route from its location to its destination. By implementing __BFS__ or __Level Order Search Algprithm__
+2. It has memory of its last visit and know where its going and can generate the shortest route from its location to its destination. By implementing __BFS__ or __Level Order Search Algorithm__
 3. It does this by considering  each next house (node) as the closest entity without giving regards to their distances. (Which is a disavantage though, but an advantage over the earlier __Robot Brain__). This makes the __Robot__ to make lesser turns than the previous __Robot Brain__.
 4. The __Robot__ using this __Brain__ generates its own __Route__ to its destination without given much thought to the distance to be covered. At least it learns and decides and does the job without having a fixed or random route memory.
 
@@ -87,7 +87,7 @@ This would lead us to program another __Robot Brain__ to resolve this issue.
 __S.R.R__ does what __G.R.R__ does but better. It is currently the __Robot__ used by the __Know where__ Villagers.
 It generates __shortest route__ to its destinaton from its location by considering each next house (node) and the distance between its location and these next houses (nodes). 
 
-This was so because the __Robot__ implements __BFS__ and __Dikjistra Algorithms__. Making it the most efficient __Robot Brain__ for now.
+This was so because the __Robot__ implements __BFS__ and __Dijkstra's Algorithms__. Making it the most efficient __Robot Brain__ for now.
 
 For example: Given a parcel at location of __Market__ and delivery address to be __Farm__ which is __100 kilometer__ far from each other.
 __G.R.R__ will move thus:  
